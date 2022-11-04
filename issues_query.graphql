@@ -1,0 +1,31 @@
+query IssuesQuery($fullPath: ID!, $cursor: String) {
+ project(fullPath: $fullPath) {
+  id
+  issues(after: $cursor) {
+    nodes {
+      id,
+      iid,
+      title,
+      milestone {
+        id
+        title
+      }
+      timelogs {
+        nodes {
+          timeSpent,
+          spentAt,
+          user {
+            id
+            username
+          }
+        }
+      }
+    }
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+  }
+ }
+
+}

@@ -1,0 +1,69 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in library 'gitlab-timereport'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--lib",
+                    "--package=gitlab-timereport"
+                ],
+                "filter": {
+                    "name": "gitlab-timereport",
+                    "kind": "lib"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug executable 'gitlab-timereport'",
+            "cargo": {
+                "args": [
+                    "build",
+                    "--bin=gitlab-timereport",
+                    "--package=gitlab-timereport"
+                ],
+                "filter": {
+                    "name": "gitlab-timereport",
+                    "kind": "bin"
+                }
+            },
+            "args": [
+                "--uri", "some gitlab uri",
+                "--token", "token",
+                "--group", "some_group_name",
+                "--force",
+            ],
+            "cwd": "${workspaceFolder}"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug unit tests in executable 'gitlab-timereport'",
+            "cargo": {
+                "args": [
+                    "test",
+                    "--no-run",
+                    "--bin=gitlab-timereport",
+                    "--package=gitlab-timereport"
+                ],
+                "filter": {
+                    "name": "gitlab-timereport",
+                    "kind": "bin"
+                }
+            },
+            "args": [],
+            "cwd": "${workspaceFolder}"
+        }
+    ]
+}

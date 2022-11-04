@@ -1,0 +1,26 @@
+query GroupQuery($fullPath: ID!) {
+  group(fullPath: $fullPath) {
+    projects {
+      edges {
+        node {
+          id
+          name
+          milestones {
+            nodes {
+              id
+              title
+            }
+          }
+        }
+      }
+    }
+    milestones {
+      edges {
+        node {
+          id
+          title
+        }
+      }
+    }
+  }
+}

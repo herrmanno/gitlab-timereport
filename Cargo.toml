@@ -1,0 +1,18 @@
+[package]
+name = "gitlab-timereport"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+path = "src/lib/mod.rs"
+
+[dependencies]
+anyhow = "1.0.66"
+clap = { version = "4.0.18", features = ["derive"] }
+graphql_client = "0.11.0"
+rayon = "1.5.3"
+reqwest = { version = "0.11.12", features = ["blocking", "json"] }
+rusqlite = { version = "0.28.0", features = ["bundled"] }
+serde = { version = "1.0.147", features = ["derive"] }
+thiserror = "1.0.37"

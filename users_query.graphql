@@ -1,0 +1,10 @@
+# import * from ./gitlab_schema.json
+
+query UsersQuery($user_ids: [ID!]!) {
+	users(ids: $user_ids) {
+    nodes {
+      id
+      username
+    }
+}
+}

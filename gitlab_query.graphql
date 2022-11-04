@@ -1,0 +1,48 @@
+# import * from ./gitlab_schema.json
+
+query GitlabQuery($project_ids: [ID!]!) {
+	projects(ids: $project_ids) {
+    nodes {
+      id,
+      name,
+      issues(first: 10) {
+        edges {
+          node {
+            id,
+            title,
+            timelogs {
+              nodes {
+                user {
+                  id,
+                  username
+                }
+                spentAt
+                timeSpent
+              }
+            }
+          }
+        }
+      }
+      mergeRequests(first: 10) {
+        edges {
+          node {
+            id,
+            timelogs {
+              edges {
+                node {
+                  timeSpent,
+                  spentAt,
+                  user {
+                    id,
+                    username
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+}

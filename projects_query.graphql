@@ -1,0 +1,14 @@
+# import * from ./gitlab_schema.json
+
+query ProjectsQuery($project_ids: [ID!]!) {
+	projects(ids: $project_ids) {
+    nodes {
+      id
+      name
+     }
+     pageInfo {
+      endCursor
+      hasNextPage
+     }
+    }
+}
